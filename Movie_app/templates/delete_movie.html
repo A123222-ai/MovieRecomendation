@@ -1,0 +1,17 @@
+<!-- templates/movies/delete_movie.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Movie</title>
+</head>
+<body>
+    <h1>Delete Movie: {{ movie.title }}</h1>
+    <p>Are you sure you want to delete this movie?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+    <a href="{% url 'movie_list' %}">Cancel</a>  <!-- Redirect to movie list or detail view -->
+</body>
+</html>

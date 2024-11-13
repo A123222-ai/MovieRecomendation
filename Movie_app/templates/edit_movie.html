@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Movie</title>
+</head>
+<body>
+    <h1>Edit Movie: {{ movie.title }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Movie</button>
+    </form>
+    <a href="{% url 'movie_list' %}">Cancel</a>
+</body>
+</html>

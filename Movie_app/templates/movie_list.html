@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Movie List</h2>
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a> - Average Rating: {{ movie.average_rating }}
+                <form action="{% url 'add_to_watchlist' movie.id %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Add to Watchlist</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
